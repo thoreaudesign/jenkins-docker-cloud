@@ -1,0 +1,27 @@
+version: '3'
+services:
+    master:
+        image: jenkins/jenkins
+        ports:
+            - "8080:8080"
+            - "50000:50000"
+        volumes:
+            - jenkins-home:/var/jenkins_home
+            - jenkins-log:/var/log/jenkins
+        networks:
+            - jenkins-net
+        restart-policy:
+            condition: always
+    proxy:
+        image: thoreaudesign/docker-proxy
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            jenkins-net:
+                aliases:
+                    - proxy1
+volumes:
+    jenkins-home:
+    jenkins-log:
+networks:
+    jenkins-net:
