@@ -10,16 +10,16 @@ services:
             - jenkins-log:/var/log/jenkins
         networks:
             - jenkins-net
-        restart-policy:
-            condition: always
+        restart: always
     proxy:
-        image: thoreaudesign/docker-proxy
+        image: thoreaudesign/jenkins-docker-proxy
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
         networks:
             jenkins-net:
                 aliases:
                     - proxy1
+        restart: always
 volumes:
     jenkins-home:
     jenkins-log:
