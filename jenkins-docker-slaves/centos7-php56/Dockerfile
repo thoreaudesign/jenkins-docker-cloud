@@ -13,7 +13,7 @@ RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93
 RUN mv composer.phar /usr/local/bin/composer
 RUN composer global require kherge/box
 RUN ln -s /root/.composer/vendor/kherge/box/bin/box /usr/local/bin/ 
-RUN sed -i 's/; phar.readonly = On/phar.readonly = Off/' /etc/php.ini
+RUN sed -i 's/;phar.readonly = On/phar.readonly = Off/' /etc/php.ini
 COPY jenkins-docker-slaves/jenkins-remoting/slave.jar /usr/share/jenkins/slave.jar
 COPY jenkins-docker-slaves/jenkins-remoting/jenkins-slave /usr/local/bin/jenkins-slave
 CMD ["/bin/bash"]
