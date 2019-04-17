@@ -6,8 +6,8 @@ services:
             - "8080:8080"
             - "50000:50000"
         volumes:
-            - jenkins-home:/var/jenkins_home
-            - jenkins-log:/var/log/jenkins
+            - /opt/jenkins/home:/var/jenkins_home
+            - /opt/jenkins/log:/var/log/jenkins
         networks:
             - jenkins-net
         restart: always
@@ -21,7 +21,7 @@ services:
                     - proxy1
         restart: always
 volumes:
-    jenkins-home:
-    jenkins-log:
+    jenkins_home:
+    jenkins_log:
 networks:
     jenkins-net:
