@@ -12,6 +12,6 @@ RUN yum -y install php56w \
 RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer -O - -q | php -- --quiet
 RUN mv composer.phar /usr/local/bin/composer
 RUN composer global require kherge/box
-COPY slave.jar /usr/share/jenkins/slave.jar
-COPY jenkins-slave /usr/local/bin/jenkins-slave
-CMD [“/bin/bash"]
+COPY jenkins-docker-slaves/jenkins-remoting/slave.jar /usr/share/jenkins/slave.jar
+COPY jenkins-docker-slaves/jenkins-remoting/jenkins-slave /usr/local/bin/jenkins-slave
+CMD ["/bin/bash"]
