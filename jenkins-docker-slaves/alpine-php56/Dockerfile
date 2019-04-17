@@ -54,9 +54,8 @@ RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93
 RUN mv composer.phar /usr/local/bin/composer
 
 # Install kherge/box.
-RUN wget http://box-project.github.io/box2/installer.php
-RUN php installer.php
-RUN mv box.phar /usr/local/bin/box
+RUN composer global require kherge/box
+RUN ln -s /root/.composer/vendor/kherge/box/bin/box /usr/local/bin/ 
 
 # Add Jenkins slave remoting. 
 COPY jenkins-docker-slaves/jenkins-remoting/slave.jar /usr/share/jenkins/slave.jar
