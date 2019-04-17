@@ -11,6 +11,7 @@ services:
         networks:
             - jenkins-net
         restart: always
+        privileged: true
     proxy:
         image: thoreaudesign/jenkins-docker-proxy
         volumes:
