@@ -46,7 +46,7 @@ RUN cd php-5.6.40/ && \
     make && \
     make install
 RUN mv /php-5.6.40/php.ini-development /etc/php.ini
-RUN sed -i 's/; phar.readonly = On/phar.readonly = Off/' /etc/php.ini
+RUN sed -i 's/;phar.readonly = On/phar.readonly = Off/' /etc/php.ini
 RUN sed -i 's/;openssl.cafile=/openssl.cafile=\/usr\/local\/ssl\/certs\/cacerts.pem/' /etc/php.ini
 
 # Install composer.
