@@ -58,7 +58,7 @@ RUN composer global require kherge/box
 RUN ln -s /root/.composer/vendor/kherge/box/bin/box /usr/local/bin/ 
 
 # Add Jenkins slave remoting. 
-COPY jenkins-docker-slaves/jenkins-remoting/slave.jar /usr/share/jenkins/slave.jar
-COPY jenkins-docker-slaves/jenkins-remoting/jenkins-slave /usr/local/bin/jenkins-slave
+COPY slaves/jenkins-remoting/slave.jar /usr/share/jenkins/slave.jar
+COPY slaves/jenkins-remoting/jenkins-slave /usr/local/bin/jenkins-slave
 
 CMD ["/bin/sh"]
